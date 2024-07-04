@@ -3,7 +3,8 @@ let basicSalary;
 let benefits;
 
 //initializing the gross salary function using the two key inputs
-let grossSalary = basicSalary + benefits;
+let grossSalary = (basicSalary, benefits)=>basicSalary + benefits;
+grossSalary(basicSalary, benefits);
 
 //the NSSF function that allows us to find the NSSF contribution of an individual
 function NSSF(basicSalary){
@@ -53,7 +54,10 @@ console.log(NHIF(grossSalary));
 
 
 //Creating a function that will help us find taxable income
-let taxableIncome = grossSalary - (NHIF+NSSF);
+let taxableIncome=(grossSalary, NHIF, NSSF) => {
+    console.log((grossSalary - (NHIF+NSSF)));
+};
+console.log(taxableIncome(grossSalary, NHIF, NSSF));
 
 //If and else statement computing the exact amount of payee as per the individual's pay
 function payee(taxableIncome){
@@ -69,10 +73,12 @@ function payee(taxableIncome){
         console.log(taxableIncome * 0.35);
     }
 }
-console.log (payee(taxableIncome));
+console.log ((payee(taxableIncome)));
 
 //The expression for finding the net salary 
 //Contains all the elements we determined above(NHIF,NSSF,payee, and gross salary)
-let netSalary = (grossSalary-(payee+NHIF+NSSF));
-console.log(netSalary);
+let netSalary=(grossSalary, payee, NHIF, NSSF) => {
+    console.log((grossSalary-(payee+NHIF+NSSF)));
+};
+console.log(netSalary(grossSalary, payee, NHIF, NSSF));
 
